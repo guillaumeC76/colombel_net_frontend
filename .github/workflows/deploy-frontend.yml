@@ -1,0 +1,52 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - main  # Déclenche l'action lors d'un push sur "main"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔄 Cloner le repo
+        uses: actions/checkout@v3
+
+      - name: ⚡ Configurer le cache pour `node_modules`
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: 🔧 Installer Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: 📦 Installer les dépendances
+        run: npm install
+
+      - name: 🔐 Générer le fichier `.env.production`
+        run: |
+          echo "VUE_APP_API_URL=${{ secrets.VUE_APP_API_URL }}" > .env.production
+          echo "VUE_APP_CHRONO=${{ secrets.VUE_APP_CHRONO }}" >> .env.production
+          echo "Fichier .env.production créé"
+
+      - name: ⚙️ Compiler le projet Vue.js
+        run: npm run build
+
+      - name: 🗑️ Nettoyer le fichier `.env.production`
+        run: rm -f .env.production
+
+      - name: 🚀 Déployer sur O2Switch via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ${{ secrets.FTP_TARGET }}

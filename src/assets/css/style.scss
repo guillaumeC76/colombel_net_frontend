@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Jersey+10&display=swap");
+
+body {
+  margin: 0;
+  background-color: #020a10;
+  font-family: "Jersey 10", serif !important;
+  font-size: 16px;
+  color: #ffffff;
+
+  #app {
+    header {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 40px;
+
+      .logo {
+        width: 80px;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .link {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+
+        a {
+          color: white;
+          font-size: 2em;
+
+          &:hover {
+            color: #caf400;
+            text-decoration: underline;
+          }
+        }
+
+        .circle {
+          width: 10px;
+          height: 10px;
+        }
+      }
+
+      .login_menu {
+        a {
+          color: white;
+          font-size: 2em;
+
+          &:hover {
+            color: #caf400;
+            text-decoration: underline;
+          }
+        }
+
+        button {
+          color: #020a10;
+          font-size: 2em;
+          background-color: #caf400;
+          border: 1px solid #caf400;
+          font-family: "Jersey 10", serif;
+          transition: 0.5s;
+          padding: 10px;
+          margin-left: 40px;
+
+          &:hover {
+            background-color: transparent;
+            color: #ffffff;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    main {
+      padding: 20px 2%;
+
+      .home {
+        text-align: center;
+        margin-top: 20px;
+
+        p {
+          font-size: 2em;
+          margin-top: 30px;
+        }
+      }
+
+      .game {
+        display: flex;
+        align-items: stretch;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+        .game_area {
+          position: relative;
+          width: 800px;
+          height: 800px;
+          border: 5px solid #caf400;
+          margin: auto;
+          overflow: hidden;
+          margin: 0;
+
+          &:hover {
+            cursor: crosshair;
+          }
+
+          .circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #caf400;
+            cursor: pointer;
+
+            &:hover {
+              cursor: crosshair;
+            }
+          }
+        }
+
+        .score_et_timer {
+          width: 35%;
+          min-width: 400px;
+          background-color: #caf400;
+          color: #020a10;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .score_affichage {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .affichage {
+              display: flex;
+              align-items: center;
+              flex-direction: column;
+
+              p {
+                font-size: 2em;
+              }
+
+              .data_affichage {
+                font-size: 5em;
+              }
+            }
+          }
+
+          .ligne {
+            width: 100%;
+            height: 2px;
+            background-color: #020a10;
+          }
+
+          .isAuthenticatedScore {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            p {
+              font-size: 2em;
+            }
+
+            a {
+              background-color: #020a10;
+              color: #ffffff;
+              border: 2px solid #020a10;
+              padding: 10px 20px;
+              font-family: "Jersey 10", serif !important;
+              font-size: 2em;
+              transition: 0.5s;
+              margin-top: 20px;
+  
+              &:hover {
+                background-color: transparent;
+                color: #020a10;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .scoreboard {
+            p {
+              text-transform: uppercase;
+              font-size: 2.5em;
+            }
+            table {
+              width: 100%;
+              border-collapse: collapse;
+              font-size: 1.5em;
+
+              th,
+              td {
+                border: 1px solid #020a10;
+                padding: 8px;
+                text-align: center;
+              }
+              th {
+                background-color: #020a10;
+                color: #ffffff;
+                border: 1px solid #ffffff;
+              }
+            }
+          }
+
+          button {
+            background-color: #020a10;
+            color: #ffffff;
+            border: 2px solid #020a10;
+            padding: 10px 20px;
+            font-family: "Jersey 10", serif !important;
+            font-size: 2em;
+            transition: 0.5s;
+            margin-top: 20px;
+
+            &:hover {
+              background-color: transparent;
+              color: #020a10;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .formulaire {
+        form {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          gap: 30px;
+
+          input {
+            border: none;
+            width: 30%;
+            background-color: #caf400;
+            padding: 10px 20px;
+            color: #020a10;
+            font-family: "Jersey 10", serif !important;
+            font-size: 1.4em;
+          }
+
+          button {
+            border: 2px solid #caf400;
+            width: 30%;
+            background-color: #caf400;
+            padding: 10px 20px;
+            color: #020a10;
+            font-family: "Jersey 10", serif !important;
+            font-size: 2em;
+            transition: 0.5s;
+
+            &:hover {
+              background-color: transparent;
+              color: #ffffff;
+              cursor: pointer;
+            }
+          }
+
+          h4 {
+            font-size: 2em;
+
+            a {
+              color: #caf400;
+              text-decoration: underline;
+              transition: 0.5s;
+
+              &:hover {
+                cursor: pointer;
+                color: #e4ecbc;
+              }
+            }
+          }
+        }
+
+        p {
+          text-align: center;
+          font-size: 2em;
+          margin-top: 20px;
+        }
+      }
+
+      .scoreboard_general {
+        p {
+          text-transform: uppercase;
+          font-size: 2.5em;
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: 2em;
+
+          th,
+          td {
+            border: 1px solid #caf400;
+            padding: 8px;
+            text-align: center;
+          }
+          th {
+            background-color: #caf400;
+            color: #020a10;
+          }
+        }
+      }
+
+      .formulaire_compte {
+        form {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          gap: 30px;
+
+          div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            width: 50%;
+
+            input {
+              border: none;
+              width: 100%;
+              background-color: #caf400;
+              padding: 10px 20px;
+              color: #020a10;
+              font-family: "Jersey 10", serif !important;
+              font-size: 1.4em;
+            }
+          }
+
+          button {
+            border: 2px solid #caf400;
+            width: 30%;
+            background-color: #caf400;
+            padding: 10px 20px;
+            color: #020a10;
+            font-family: "Jersey 10", serif !important;
+            font-size: 2em;
+            transition: 0.5s;
+
+            &:hover {
+              background-color: transparent;
+              color: #ffffff;
+              cursor: pointer;
+            }
+          }
+        }
+
+        p {
+          text-align: center;
+          font-size: 2em;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
